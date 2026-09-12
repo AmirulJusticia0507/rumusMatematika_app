@@ -298,17 +298,16 @@ class RumusController extends Controller
 
     private function jenjang(string $jenis): string
     {
-        if (in_array($jenis, $this->sd)) {
-            return 'SD';
-        }
-        if (in_array($jenis, $this->smp)) {
-            return 'SMP';
-        }
-        if (in_array($jenis, $this->sma)) {
-            return 'SMA';
+        $jenjang = 'Umum';
+
+        foreach (['SD' => $this->sd, 'SMP' => $this->smp, 'SMA' => $this->sma] as $level => $list) {
+            if (in_array($jenis, $list)) {
+                $jenjang = $level;
+                break;
+            }
         }
 
-        return 'Umum';
+        return $jenjang;
     }
 
     /**
