@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'photo',
     ];
 
     /**
@@ -44,5 +45,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get the public URL for the user's photo, or a default avatar.
+     */
+    public function getPhotoUrlAttribute(): string
+    {
+        return $this->photo && \Illuminate\Support\Facades\Storage::disk('public')->exists($this->photo)
+            ? \Illuminate\Support\Facades\Storage::disk('public')->url($this->photo)
+            : 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&background=6366f1&color=fff';
     }
 }
