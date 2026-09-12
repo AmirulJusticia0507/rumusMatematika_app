@@ -1,0 +1,205 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class MateriSeeder extends Seeder
+{
+    public function run()
+    {
+        $materi = [
+            // Kelas 1
+            ['judul' => 'Membilang sampai dengan 10', 'kelas_id' => 1],
+            ['judul' => 'Menghitung, membaca, dan menulis bilangan', 'kelas_id' => 1],
+            ['judul' => 'Membandingkan banyak benda', 'kelas_id' => 1],
+            ['judul' => 'Menghitung maju dan mundur', 'kelas_id' => 1],
+            ['judul' => 'Pasangan bilangan', 'kelas_id' => 1],
+            ['judul' => 'Penjumlahan sampai dengan 10', 'kelas_id' => 1],
+            ['judul' => 'Cerita penjumlahan', 'kelas_id' => 1],
+            ['judul' => 'Berbagai cara melakukan penjumlahan', 'kelas_id' => 1],
+            ['judul' => 'Pengurangan sampai dengan 10', 'kelas_id' => 1],
+            ['judul' => 'Cerita pengurangan', 'kelas_id' => 1],
+            ['judul' => 'Berbagai cara melakukan pengurangan', 'kelas_id' => 1],
+            ['judul' => 'Hubungan penjumlahan dan pengurangan', 'kelas_id' => 1],
+            ['judul' => 'Mengenal bentuk', 'kelas_id' => 1],
+            ['judul' => 'Mendeskripsikan benda berdasarkan bentuk', 'kelas_id' => 1],
+            ['judul' => 'Mengelompokkan benda', 'kelas_id' => 1],
+            ['judul' => 'Menyusun dan mengurai bentuk bangun', 'kelas_id' => 1],
+
+            // Kelas 2
+            ['judul' => 'Membilang sampai dengan 50', 'kelas_id' => 2],
+            ['judul' => 'Menghitung, membaca, dan menulis bilangan sampai dengan 50', 'kelas_id' => 2],
+            ['judul' => 'Nilai tempat', 'kelas_id' => 2],
+            ['judul' => 'Membandingkan dua bilangan atau lebih', 'kelas_id' => 2],
+            ['judul' => 'Penjumlahan dan pengurangan', 'kelas_id' => 2],
+            ['judul' => 'Berbagai cara melakukan penjumlahan', 'kelas_id' => 2],
+            ['judul' => 'Berbagai cara melakukan pengurangan', 'kelas_id' => 2],
+            ['judul' => 'Bentuk di sekitar kita', 'kelas_id' => 2],
+            ['judul' => 'Bangun datar', 'kelas_id' => 2],
+            ['judul' => 'Mengurai dan menyusun bangun datar', 'kelas_id' => 2],
+            ['judul' => 'Bangun ruang', 'kelas_id' => 2],
+            ['judul' => 'Posisi benda', 'kelas_id' => 2],
+            ['judul' => 'Pola', 'kelas_id' => 2],
+            ['judul' => 'Setengah dari benda utuh', 'kelas_id' => 2],
+            ['judul' => 'Setengah dari kumpulan benda', 'kelas_id' => 2],
+            ['judul' => 'Seperempat dari benda utuh', 'kelas_id' => 2],
+
+            // Kelas 3
+            ['judul' => 'Bilangan cacah sampai 1.000', 'kelas_id' => 3],
+            ['judul' => 'Bilangan dan lambang bilangan cacah sampai 1.000', 'kelas_id' => 3],
+            ['judul' => 'Nilai tempat bilangan cacah sampai 1.000', 'kelas_id' => 3],
+            ['judul' => 'Membandingkan dan mengurutkan bilangan cacah sampai 1.000', 'kelas_id' => 3],
+            ['judul' => 'Penjumlahan bilangan cacah sampai 100', 'kelas_id' => 3],
+            ['judul' => 'Pengurangan bilangan cacah sampai 100', 'kelas_id' => 3],
+            ['judul' => 'Perkalian bilangan cacah sampai 100', 'kelas_id' => 3],
+            ['judul' => 'Pembagian bilangan cacah sampai 100', 'kelas_id' => 3],
+            ['judul' => 'Kalimat matematika berkaitan dengan penjumlahan', 'kelas_id' => 3],
+            ['judul' => 'Kalimat matematika berkaitan dengan pengurangan', 'kelas_id' => 3],
+            ['judul' => 'Pengukuran panjang dengan satuan baku', 'kelas_id' => 3],
+            ['judul' => 'Hubungan antarsatuan baku panjang', 'kelas_id' => 3],
+            ['judul' => 'Pengukuran berat dengan satuan baku', 'kelas_id' => 3],
+            ['judul' => 'Hubungan antarsatuan baku berat', 'kelas_id' => 3],
+            ['judul' => 'Sisi pada bangun datar', 'kelas_id' => 3],
+            ['judul' => 'Sudut pada bidang datar', 'kelas_id' => 3],
+            ['judul' => 'Garis-garis tegak lurus dan garis-garis sejajar', 'kelas_id' => 3],
+
+            // Kelas 4
+            ['judul' => 'Bilangan cacah sampai 10.000', 'kelas_id' => 4],
+            ['judul' => 'Membaca dan menulis bilangan cacah sampai 10.000', 'kelas_id' => 4],
+            ['judul' => 'Menentukan dan menggunakan nilai tempat bilangan cacah sampai 10.000', 'kelas_id' => 4],
+            ['judul' => 'Membandingkan dan mengurutkan bilangan cacah sampai 10.000', 'kelas_id' => 4],
+            ['judul' => 'Komposisi dan dekomposisi bilangan cacah sampai 10.000', 'kelas_id' => 4],
+            ['judul' => 'Penjumlahan bilangan cacah sampai 1.000', 'kelas_id' => 4],
+            ['judul' => 'Pengurangan bilangan cacah sampai 1.000', 'kelas_id' => 4],
+            ['judul' => 'Perkalian bilangan cacah sampai 100', 'kelas_id' => 4],
+            ['judul' => 'Pembagian bilangan cacah sampai 100', 'kelas_id' => 4],
+            ['judul' => 'Faktor dan kelipatan', 'kelas_id' => 4],
+            ['judul' => 'Pecahan dengan pembilang satu', 'kelas_id' => 4],
+            ['judul' => 'Pecahan dengan penyebut sama', 'kelas_id' => 4],
+            ['judul' => 'Pecahan senilai', 'kelas_id' => 4],
+            ['judul' => 'Pecahan desimal persepuluhan dan perseratusan', 'kelas_id' => 4],
+            ['judul' => 'Menghubungkan pecahan desimal perseratusan dengan konsep persen', 'kelas_id' => 4],
+            ['judul' => 'Pola gambar', 'kelas_id' => 4],
+            ['judul' => 'Pola bilangan', 'kelas_id' => 4],
+            ['judul' => 'Pengukuran luas', 'kelas_id' => 4],
+            ['judul' => 'Pengukuran volume', 'kelas_id' => 4],
+            ['judul' => 'Ciri-ciri bangun datar', 'kelas_id' => 4],
+            ['judul' => 'Komposisi dan dekomposisi bangun datar', 'kelas_id' => 4],
+            ['judul' => 'Piktogram', 'kelas_id' => 4],
+            ['judul' => 'Diagram batang', 'kelas_id' => 4],
+
+            // Kelas 5
+            ['judul' => 'Bilangan cacah sampai 100.000', 'kelas_id' => 5],
+            ['judul' => 'Membaca dan menulis bilangan cacah sampai 100.000 dan menentukan nilai tempatnya', 'kelas_id' => 5],
+            ['judul' => 'Membandingkan dan mengurutkan bilangan cacah sampai 100.000', 'kelas_id' => 5],
+            ['judul' => 'Komposisi dan dekomposisi bilangan sampai 100.000', 'kelas_id' => 5],
+            ['judul' => 'Operasi hitung pada bilangan cacah sampai 100.000', 'kelas_id' => 5],
+            ['judul' => 'Kelipatan', 'kelas_id' => 5],
+            ['judul' => 'Kelipatan persekutuan', 'kelas_id' => 5],
+            ['judul' => 'Faktor', 'kelas_id' => 5],
+            ['judul' => 'Faktor persekutuan', 'kelas_id' => 5],
+            ['judul' => 'Menentukan KPK dan FPB dengan menggunakan faktor prima', 'kelas_id' => 5],
+            ['judul' => 'Membandingkan dan mengurutkan pecahan', 'kelas_id' => 5],
+            ['judul' => 'Penjumlahan bilangan pecahan', 'kelas_id' => 5],
+            ['judul' => 'Pengurangan bilangan pecahan', 'kelas_id' => 5],
+            ['judul' => 'Keliling segitiga', 'kelas_id' => 5],
+            ['judul' => 'Keliling segi empat', 'kelas_id' => 5],
+            ['judul' => 'Keliling segi banyak', 'kelas_id' => 5],
+            ['judul' => 'Keliling bangun gabungan', 'kelas_id' => 5],
+            ['judul' => 'Konsep luas daerah bangun datar', 'kelas_id' => 5],
+            ['judul' => 'Luas daerah bangun datar', 'kelas_id' => 5],
+            ['judul' => 'Luas daerah bangun gabungan', 'kelas_id' => 5],
+            ['judul' => 'Hubungan keliling dan luas daerah bangun datar', 'kelas_id' => 5],
+            ['judul' => 'Sudut siku-siku', 'kelas_id' => 5],
+            ['judul' => 'Pengertian sudut', 'kelas_id' => 5],
+            ['judul' => 'Mengukur dan membandingkan sudut', 'kelas_id' => 5],
+            ['judul' => 'Melukis sudut', 'kelas_id' => 5],
+            ['judul' => 'Membandingkan ciri-ciri segitiga', 'kelas_id' => 5],
+            ['judul' => 'Membandingkan ciri-ciri segiempat', 'kelas_id' => 5],
+            ['judul' => 'Mengumpulkan data', 'kelas_id' => 5],
+            ['judul' => 'Piktogram', 'kelas_id' => 5],
+            ['judul' => 'Diagram batang', 'kelas_id' => 5],
+            ['judul' => 'Bilangan cacah sampai 1.000.000', 'kelas_id' => 5],
+            ['judul' => 'Membaca dan menulis bilangan cacah sampai 1.000.000 dan menentukan nilai tempatnya', 'kelas_id' => 5],
+            ['judul' => 'Mengurutkan dan membandingkan bilangan sampai 1.000.000', 'kelas_id' => 5],
+            ['judul' => 'Komposisi dan dekomposisi bilangan sampai 1.000.000', 'kelas_id' => 5],
+
+            // Kelas 6
+            ['judul' => 'Perkalian pecahan', 'kelas_id' => 6],
+            ['judul' => 'Pembagian pecahan', 'kelas_id' => 6],
+            ['judul' => 'Bilangan desimal', 'kelas_id' => 6],
+            ['judul' => 'Konsep rasio', 'kelas_id' => 6],
+            ['judul' => 'Konsep kesamaan rasio', 'kelas_id' => 6],
+            ['judul' => 'Penerapan rasio', 'kelas_id' => 6],
+            ['judul' => 'Mengonstruksi dan mengurai kubus dan balok', 'kelas_id' => 6],
+            ['judul' => 'Visualisasi spasial', 'kelas_id' => 6],
+            ['judul' => 'Lokasi', 'kelas_id' => 6],
+            ['judul' => 'Skala peluang', 'kelas_id' => 6],
+            ['judul' => 'Membandingkan peluang kejadian', 'kelas_id' => 6],
+
+                        // Kelas 7 (SMP/Sederajat)
+            ['judul' => 'Bilangan bulat dan operasi', 'kelas_id' => 7],
+            ['judul' => 'Pecahan, desimal, dan persentase', 'kelas_id' => 7],
+            ['judul' => 'Perbandingan dan skala', 'kelas_id' => 7],
+            ['judul' => 'Aljabar dasar', 'kelas_id' => 7],
+            ['judul' => 'Persamaan linear satu variabel', 'kelas_id' => 7],
+            ['judul' => 'Persamaan linear dua variabel', 'kelas_id' => 7],
+            ['judul' => 'Statistika dasar', 'kelas_id' => 7],
+            ['judul' => 'Geometri: bangun datar dan bangun ruang', 'kelas_id' => 7],
+            ['judul' => 'Sifat-sifat bangun ruang', 'kelas_id' => 7],
+            ['judul' => 'Penyajian data: diagram dan tabel', 'kelas_id' => 7],
+
+            // Kelas 8
+            ['judul' => 'Operasi bilangan bulat dan pecahan', 'kelas_id' => 8],
+            ['judul' => 'Persamaan dan pertidaksamaan linear', 'kelas_id' => 8],
+            ['judul' => 'Sistem persamaan linear dua variabel', 'kelas_id' => 8],
+            ['judul' => 'Penyelesaian masalah perbandingan', 'kelas_id' => 8],
+            ['judul' => 'Geometri: segitiga dan segiempat', 'kelas_id' => 8],
+            ['judul' => 'Penyelesaian masalah volume dan luas permukaan bangun ruang', 'kelas_id' => 8],
+            ['judul' => 'Statistika: mean, median, modus', 'kelas_id' => 8],
+            ['judul' => 'Peluang sederhana', 'kelas_id' => 8],
+
+            // Kelas 9
+            ['judul' => 'Bilangan rasional dan operasi', 'kelas_id' => 9],
+            ['judul' => 'Aljabar: bentuk aljabar dan identitas aljabar', 'kelas_id' => 9],
+            ['judul' => 'Persamaan kuadrat', 'kelas_id' => 9],
+            ['judul' => 'Sistem persamaan linear tiga variabel', 'kelas_id' => 9],
+            ['judul' => 'Fungsi dan grafik fungsi linear', 'kelas_id' => 9],
+            ['judul' => 'Peluang gabungan dan diagram pohon', 'kelas_id' => 9],
+            ['judul' => 'Statistika lanjutan: varians dan standar deviasi', 'kelas_id' => 9],
+            ['judul' => 'Geometri: transformasi dan simetri', 'kelas_id' => 9],
+
+            // Kelas 10 (SMA/Sederajat)
+            ['judul' => 'Trigonometri dasar', 'kelas_id' => 10],
+            ['judul' => 'Fungsi eksponen dan logaritma', 'kelas_id' => 10],
+            ['judul' => 'Persamaan kuadrat dan fungsi kuadrat', 'kelas_id' => 10],
+            ['judul' => 'Limit fungsi', 'kelas_id' => 10],
+            ['judul' => 'Statistika dan peluang lanjutan', 'kelas_id' => 10],
+            ['judul' => 'Geometri analitik: garis dan lingkaran', 'kelas_id' => 10],
+            ['judul' => 'Vektor di bidang', 'kelas_id' => 10],
+
+            // Kelas 11
+            ['judul' => 'Trigonometri lanjutan', 'kelas_id' => 11],
+            ['judul' => 'Fungsi eksponensial dan logaritma lanjutan', 'kelas_id' => 11],
+            ['judul' => 'Persamaan dan pertidaksamaan eksponen', 'kelas_id' => 11],
+            ['judul' => 'Fungsi kuadrat dan fungsi polinomial', 'kelas_id' => 11],
+            ['judul' => 'Kalkulus dasar: turunan', 'kelas_id' => 11],
+            ['judul' => 'Statistika dan peluang lanjutan', 'kelas_id' => 11],
+            ['judul' => 'Vektor di ruang tiga dimensi', 'kelas_id' => 11],
+
+            // Kelas 12
+            ['judul' => 'Kalkulus: turunan lanjutan dan aplikasi', 'kelas_id' => 12],
+            ['judul' => 'Integral dan aplikasinya', 'kelas_id' => 12],
+            ['judul' => 'Fungsi eksponensial dan logaritma tingkat lanjut', 'kelas_id' => 12],
+            ['judul' => 'Trigonometri lanjutan dan identitas trigonometri', 'kelas_id' => 12],
+            ['judul' => 'Limit dan kontinuitas fungsi', 'kelas_id' => 12],
+            ['judul' => 'Statistika dan probabilitas lanjutan', 'kelas_id' => 12],
+            ['judul' => 'Matriks dan determinan', 'kelas_id' => 12],
+            ['judul' => 'Geometri analitik lanjutan', 'kelas_id' => 12],
+        ];
+
+        DB::table('materis')->insert($materi);
+    }
+}
