@@ -53,7 +53,7 @@ class User extends Authenticatable
     public function getPhotoUrlAttribute(): string
     {
         return $this->photo && \Illuminate\Support\Facades\Storage::disk('public')->exists($this->photo)
-            ? \Illuminate\Support\Facades\Storage::disk('public')->url($this->photo)
+            ? asset('storage/'.$this->photo)
             : 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&background=6366f1&color=fff';
     }
 }
