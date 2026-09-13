@@ -139,7 +139,7 @@ class MateriSeeder extends Seeder
             ['judul' => 'Skala peluang', 'kelas_id' => 6],
             ['judul' => 'Membandingkan peluang kejadian', 'kelas_id' => 6],
 
-                        // Kelas 7 (SMP/Sederajat)
+            // Kelas 7 (SMP/Sederajat)
             ['judul' => 'Bilangan bulat dan operasi', 'kelas_id' => 7],
             ['judul' => 'Pecahan, desimal, dan persentase', 'kelas_id' => 7],
             ['judul' => 'Perbandingan dan skala', 'kelas_id' => 7],

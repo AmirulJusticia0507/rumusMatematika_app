@@ -11,6 +11,7 @@ class MateriController extends Controller
     public function index()
     {
         $materi = Materi::with(['subMateri', 'kelas'])->get();
+
         return response()->json($materi);
     }
 
@@ -18,6 +19,7 @@ class MateriController extends Controller
     public function show($id)
     {
         $materi = Materi::with(['subMateri', 'kelas'])->findOrFail($id);
+
         return response()->json($materi);
     }
 
@@ -26,12 +28,12 @@ class MateriController extends Controller
     {
         $request->validate([
             'judul' => 'required|string|max:255',
-            'kelas_id' => 'required|exists:kelas,id'
+            'kelas_id' => 'required|exists:kelas,id',
         ]);
 
         $materi = Materi::create([
             'judul' => $request->judul,
-            'kelas_id' => $request->kelas_id
+            'kelas_id' => $request->kelas_id,
         ]);
 
         return response()->json($materi, 201);
@@ -44,7 +46,7 @@ class MateriController extends Controller
 
         $request->validate([
             'judul' => 'sometimes|required|string|max:255',
-            'kelas_id' => 'sometimes|required|exists:kelas,id'
+            'kelas_id' => 'sometimes|required|exists:kelas,id',
         ]);
 
         $materi->update($request->only(['judul', 'kelas_id']));
@@ -56,6 +58,7 @@ class MateriController extends Controller
     public function destroy($id)
     {
         Materi::destroy($id);
+
         return response()->json(null, 204);
     }
 }

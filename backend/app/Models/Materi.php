@@ -5,16 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Materi extends Model {
+class Materi extends Model
+{
     use HasFactory;
-    protected $fillable = ['kelas_id','judul'];
 
-    public function kelas() {
+    protected $fillable = ['kelas_id', 'judul'];
+
+    public function kelas()
+    {
         return $this->belongsTo(Kelas::class);
     }
 
-    public function subMateri() {
+    public function subMateri()
+    {
         return $this->hasMany(SubMateri::class);
     }
 }
-

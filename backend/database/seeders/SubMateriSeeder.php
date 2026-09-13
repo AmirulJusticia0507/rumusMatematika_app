@@ -71,7 +71,7 @@ class SubMateriSeeder extends Seeder
             ['judul' => 'Peluang sederhana', 'isi' => 'Latihan menghitung peluang kejadian sederhana.', 'materi_id' => 106],
         ];
 
-                // Kelas 7
+        // Kelas 7
         $subMateriK7 = [
             ['judul' => 'Bilangan bulat dan operasi', 'isi' => 'Latihan penjumlahan, pengurangan, perkalian, dan pembagian bilangan bulat.', 'materi_id' => 110],
             ['judul' => 'Pecahan dan desimal', 'isi' => 'Latihan operasi pecahan dan desimal.', 'materi_id' => 111],
