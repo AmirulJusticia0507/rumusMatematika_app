@@ -31,7 +31,7 @@ Route::middleware('guest')->group(function () {
 Route::post('/logout', [WebAuthController::class, 'logout'])->name('logout');
 
 Route::get('/rumus', [RumusController::class, 'index'])->name('rumus.index');
-Route::get('/rumus/{jenis}', [RumusController::class, 'show'])->name('rumus.show');
+Route::get('/rumus/{rumus:slug}', [RumusController::class, 'show'])->name('rumus.show');
 
 // Rangkuman (PDF / cetak)
 Route::get('/rangkuman', [RumusController::class, 'rangkuman'])->name('rangkuman');
@@ -51,7 +51,7 @@ Route::get('/flashcard', [FlashcardController::class, 'index'])->name('flashcard
 
 // Area autentikasi
 Route::middleware('auth')->group(function () {
-    Route::post('/rumus/{jenis}/bookmark', [BookmarkController::class, 'toggle'])->name('rumus.bookmark');
+    Route::post('/rumus/{rumus:slug}/bookmark', [BookmarkController::class, 'toggle'])->name('rumus.bookmark');
     Route::get('/favorit', [BookmarkController::class, 'index'])->name('favorit.index');
 
     Route::post('/flashcard/progress', [FlashcardController::class, 'progress'])->name('flashcard.progress');
@@ -59,4 +59,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profil', [ProfileController::class, 'edit'])->name('profil.edit');
     Route::put('/profil', [ProfileController::class, 'update'])->name('profil.update');
     Route::put('/profil/password', [ProfileController::class, 'password'])->name('profil.password');
+});
+
+// Admin
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('rumus', \App\Http\Controllers\Admin\RumusController::class)->except('show')->parameters(['rumus' => 'rumus']);
 });

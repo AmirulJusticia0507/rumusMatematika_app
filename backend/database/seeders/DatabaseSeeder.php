@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             KelasSeeder::class,
             MateriSeeder::class,
             SubMateriSeeder::class,
+            RumusSeeder::class,
         ]);
     }
 }

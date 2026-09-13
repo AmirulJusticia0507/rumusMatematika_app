@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
+use App\Models\Rumus;
 use Illuminate\Http\Request;
 
 class BookmarkController extends Controller
 {
-    public function toggle(Request $request, string $jenis)
+    public function toggle(Request $request, Rumus $rumus)
     {
         $exists = Bookmark::where('user_id', auth()->id())
-            ->where('rumus_title', $jenis)
+            ->where('rumus_title', $rumus->title)
             ->first();
 
         if ($exists) {
@@ -19,7 +20,7 @@ class BookmarkController extends Controller
         } else {
             Bookmark::create([
                 'user_id' => auth()->id(),
-                'rumus_title' => $jenis,
+                'rumus_title' => $rumus->title,
             ]);
             $bookmarked = true;
         }

@@ -39,7 +39,7 @@
                         <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r {{ $item['gradient'] }} opacity-0 transition group-hover:opacity-100"></div>
                         <div class="flex items-start justify-between gap-3">
                             <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br {{ $item['gradient'] }} text-2xl shadow-lg">{{ $item['emoji'] }}</span>
-                            <form method="POST" action="{{ route('rumus.bookmark', ['jenis' => $item['title']]) }}">
+                            <form method="POST" action="{{ route('rumus.bookmark', ['rumus' => $item['slug']]) }}">
                                 @csrf
                                 <button type="submit" title="Hapus dari favorit" class="rounded-full p-2 text-amber-500 transition hover:bg-amber-100 dark:hover:bg-amber-500/10">
                                     <svg class="h-5 w-5 fill-amber-400 text-amber-400" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -48,7 +48,7 @@
                         </div>
                         <h2 class="mt-4 text-lg font-bold leading-snug text-slate-900 dark:text-white">{{ $item['title'] }}</h2>
                         <p class="mt-1 line-clamp-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{{ $item['keterangan'] }}</p>
-                        <a href="{{ route('rumus.show', ['jenis' => $item['title']]) }}" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 group-hover:underline dark:text-indigo-400">
+                        <a href="{{ route('rumus.show', ['rumus' => $item['slug']]) }}" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 group-hover:underline dark:text-indigo-400">
                             Buka Rumus
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>

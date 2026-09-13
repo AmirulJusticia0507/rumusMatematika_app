@@ -30,7 +30,7 @@
                     <p class="mt-2 max-w-xl text-sm text-indigo-100 sm:text-base">{{ $rumusInfo['keterangan'] }}</p>
                 </div>
 
-                <form method="POST" action="{{ route('rumus.bookmark', ['jenis' => $jenis]) }}" class="shrink-0">
+                <form method="POST" action="{{ route('rumus.bookmark', ['rumus' => $slug]) }}" class="shrink-0">
                     @csrf
                     <button
                         type="submit"

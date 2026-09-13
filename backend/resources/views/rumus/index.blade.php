@@ -72,7 +72,7 @@
 
                     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         @foreach ($items as $item)
-                            <a href="{{ route('rumus.show', ['jenis' => $item['title']]) }}" class="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-xl hover:shadow-indigo-500/10 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-indigo-500/20">
+                            <a href="{{ route('rumus.show', ['rumus' => $item['slug']]) }}" class="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-xl hover:shadow-indigo-500/10 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-indigo-500/20">
                                 <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r {{ $item['gradient'] }} opacity-0 transition group-hover:opacity-100"></div>
 
                                 <div class="flex items-start justify-between gap-3">
