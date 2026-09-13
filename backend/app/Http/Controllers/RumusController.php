@@ -258,18 +258,7 @@ class RumusController extends Controller
 
     public function index()
     {
-        $rumus = [];
-        foreach ($this->rumusDetail as $key => $item) {
-            [$emoji, $gradient] = $this->visual($key);
-            $rumus[] = [
-                'title' => $key,
-                'keterangan' => $item['keterangan'],
-                'rumus' => $item['rumus'],
-                'jenjang' => $this->jenjang($key),
-                'emoji' => $emoji,
-                'gradient' => $gradient,
-            ];
-        }
+        $rumus = $this->buildList();
 
         $cari = trim((string) request('cari'));
         if ($cari !== '') {
@@ -292,8 +281,52 @@ class RumusController extends Controller
         }
 
         [$emoji, $gradient] = $this->visual($jenis);
+        $isBookmarked = auth()->check() && auth()->user()->hasBookmarked($jenis);
 
-        return view('rumus.show', compact('jenis', 'rumusInfo', 'kategoriJenjang', 'emoji', 'gradient'));
+        return view('rumus.show', compact('jenis', 'rumusInfo', 'kategoriJenjang', 'emoji', 'gradient', 'isBookmarked'));
+    }
+
+    public function rangkuman()
+    {
+        return view('rumus.rangkuman', ['rumus' => $this->buildList()]);
+    }
+
+    /**
+     * @return array<int, array<string, string>>
+     */
+    public function buildList(): array
+    {
+        $rumus = [];
+        foreach ($this->rumusDetail as $key => $item) {
+            [$emoji, $gradient] = $this->visual($key);
+            $rumus[] = [
+                'title' => $key,
+                'keterangan' => $item['keterangan'],
+                'rumus' => $item['rumus'],
+                'jenjang' => $this->jenjang($key),
+                'emoji' => $emoji,
+                'gradient' => $gradient,
+            ];
+        }
+
+        return $rumus;
+    }
+
+    /**
+     * @return array<int, array<string, string>>
+     */
+    public function forFavorites(array $titles): array
+    {
+        $all = collect($this->buildList())->keyBy('title');
+
+        $result = [];
+        foreach ($titles as $title) {
+            if ($all->has($title)) {
+                $result[] = $all->get($title);
+            }
+        }
+
+        return $result;
     }
 
     private function jenjang(string $jenis): string

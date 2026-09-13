@@ -56,4 +56,29 @@ class User extends Authenticatable
             ? asset('storage/'.$this->photo)
             : 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&background=6366f1&color=fff';
     }
+
+    public function bookmarks(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+
+    public function hasBookmarked(string $title): bool
+    {
+        return $this->bookmarks()->where('rumus_title', $title)->exists();
+    }
+
+    public function quizScores(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(QuizScore::class);
+    }
+
+    public function bestScore(string $materi): ?QuizScore
+    {
+        return $this->quizScores()->where('materi', $materi)->orderByDesc('score')->first();
+    }
+
+    public function flashcardProgress(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(FlashcardProgress::class);
+    }
 }

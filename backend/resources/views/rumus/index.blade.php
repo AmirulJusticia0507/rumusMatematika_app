@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <svg class="block w-full fill-slate-50" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="block w-full fill-slate-50 dark:fill-slate-950" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
             <path d="M0,32 C360,64 1080,0 1440,32 L1440,60 L0,60 Z"></path>
         </svg>
     </section>
@@ -60,39 +60,39 @@
                     <div class="mb-8 flex items-end justify-between gap-4">
                         <div>
                             <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide
-                                {{ $jenjang === 'SD' ? 'bg-emerald-100 text-emerald-700' : ($jenjang === 'SMP' ? 'bg-orange-100 text-orange-700' : 'bg-fuchsia-100 text-fuchsia-700') }}">
+                                {{ $jenjang === 'SD' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300' : ($jenjang === 'SMP' ? 'bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-300' : 'bg-fuchsia-100 text-fuchsia-700 dark:bg-fuchsia-500/10 dark:text-fuchsia-300') }}">
                                 Jenjang {{ $jenjang }}
                             </span>
-                            <h2 class="mt-3 text-2xl font-extrabold text-slate-900 sm:text-3xl">
+                            <h2 class="mt-3 text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl">
                                 {{ $jenjang === 'SD' ? 'Dasar-dasar Membangun Bakat' : ($jenjang === 'SMP' ? 'Materi Menantang & Seru' : 'Rumus Naga untuk Para Juara') }}
                             </h2>
-                            <p class="mt-1 text-sm text-slate-500">{{ count($items) }} materi siap dipelajari</p>
+                            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ count($items) }} materi siap dipelajari</p>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         @foreach ($items as $item)
-                            <a href="{{ route('rumus.show', ['jenis' => $item['title']]) }}" class="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-xl hover:shadow-indigo-500/10">
+                            <a href="{{ route('rumus.show', ['jenis' => $item['title']]) }}" class="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-xl hover:shadow-indigo-500/10 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-indigo-500/20">
                                 <div class="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r {{ $item['gradient'] }} opacity-0 transition group-hover:opacity-100"></div>
 
                                 <div class="flex items-start justify-between gap-3">
                                     <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br {{ $item['gradient'] }} text-2xl shadow-lg">
                                         {{ $item['emoji'] }}
                                     </span>
-                                    <span class="ml-auto inline-flex items-center text-slate-300 transition group-hover:text-indigo-500">
+                                    <span class="ml-auto inline-flex items-center text-slate-300 transition group-hover:text-indigo-500 dark:text-slate-600 dark:group-hover:text-indigo-400">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                     </span>
                                 </div>
 
-                                <h3 class="mt-4 text-lg font-bold leading-snug text-slate-900 group-hover:text-indigo-600">{{ $item['title'] }}</h3>
+                                <h3 class="mt-4 text-lg font-bold leading-snug text-slate-900 group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400">{{ $item['title'] }}</h3>
 
-                                <p class="mt-1 line-clamp-2 text-sm leading-relaxed text-slate-500">{{ $item['keterangan'] }}</p>
+                                <p class="mt-1 line-clamp-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{{ $item['keterangan'] }}</p>
 
-                                <div class="mt-4 rounded-xl bg-slate-50 p-3 font-mono text-sm leading-relaxed text-slate-700">
+                                <div class="mt-4 rounded-xl bg-slate-50 p-3 font-mono text-sm leading-relaxed text-slate-700 dark:bg-slate-800 dark:text-slate-200">
                                     {!! $item['rumus'] !!}
                                 </div>
 
-                                <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600">
+                                <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 dark:text-indigo-400">
                                     Buka Rumus
                                     <svg class="transition group-hover:translate-x-1" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                 </span>

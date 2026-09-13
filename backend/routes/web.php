@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\FlashcardController;
+use App\Http\Controllers\KalkulatorController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RumusController;
 use App\Http\Controllers\WebAuthController;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +32,31 @@ Route::post('/logout', [WebAuthController::class, 'logout'])->name('logout');
 
 Route::get('/rumus', [RumusController::class, 'index'])->name('rumus.index');
 Route::get('/rumus/{jenis}', [RumusController::class, 'show'])->name('rumus.show');
+
+// Rangkuman (PDF / cetak)
+Route::get('/rangkuman', [RumusController::class, 'rangkuman'])->name('rangkuman');
+
+// Kalkulator rumus
+Route::get('/kalkulator', [KalkulatorController::class, 'index'])->name('kalkulator.index');
+
+// Kuis
+Route::controller(QuizController::class)->group(function () {
+    Route::get('/kuis', 'index')->name('kuis.index');
+    Route::get('/kuis/{jenis}', 'show')->name('kuis.show');
+    Route::post('/kuis/{jenis}', 'submit')->name('kuis.submit');
+});
+
+// Flashcard
+Route::get('/flashcard', [FlashcardController::class, 'index'])->name('flashcard.index');
+
+// Area autentikasi
+Route::middleware('auth')->group(function () {
+    Route::post('/rumus/{jenis}/bookmark', [BookmarkController::class, 'toggle'])->name('rumus.bookmark');
+    Route::get('/favorit', [BookmarkController::class, 'index'])->name('favorit.index');
+
+    Route::post('/flashcard/progress', [FlashcardController::class, 'progress'])->name('flashcard.progress');
+
+    Route::get('/profil', [ProfileController::class, 'edit'])->name('profil.edit');
+    Route::put('/profil', [ProfileController::class, 'update'])->name('profil.update');
+    Route::put('/profil/password', [ProfileController::class, 'password'])->name('profil.password');
+});
